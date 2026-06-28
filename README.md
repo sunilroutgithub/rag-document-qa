@@ -6,7 +6,7 @@
 ![Docker](https://img.shields.io/badge/Docker-ready-blue)
 
 ## 🚀 Live Demo
-API Docs: Coming soon after deploy
+API Docs: https://rag-document-qa-aegf.onrender.com/docs
 
 ## 📌 What This Project Does
 Upload any PDF document and ask questions about it in natural language.
