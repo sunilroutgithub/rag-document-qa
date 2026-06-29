@@ -1,0 +1,27 @@
+cd ~/rag-document-qa
+source venv/bin/activate
+
+
+for check everything 
+
+find . -not -path "./venv/*" -type f
+
+
+
+
+
+
+for start application 
+
+uvicorn app.main:app --reload
+
+
+
+rag project token 
+
+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
+
+
+Your Project is Now Fully Live
+ItemLinkGitHubhttps://github.com/sunilroutgithub/rag-document-qaLive APIhttps://rag-document-qa-aegf.onrender.comAPI Docshttps://rag-document-qa-aegf.onrender.com/docs
+
