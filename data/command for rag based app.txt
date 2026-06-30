@@ -19,7 +19,7 @@ uvicorn app.main:app --reload
 
 rag project token 
 
-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
+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
 
 
 Your Project is Now Fully Live
