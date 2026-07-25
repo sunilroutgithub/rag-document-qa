@@ -20,7 +20,8 @@ RUN pip install --no-cache-dir \
     langchain-community==0.4.2 \
     langchain-core==1.4.8 \
     langchain-text-splitters==1.1.2 \
-    python-docx==1.1.2
+    python-docx==1.1.2 \
+    pytest==8.3.4
 
 COPY . .
 
