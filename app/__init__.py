@@ -1,55 +1,29 @@
-from typing import Dict, List
+import pytest
 
-__version__ = "1.0.0"
-
-class Task:
-    """A class representing a task.
-
-    Attributes:
-        name (str): The name of the task.
-        description (str): The description of the task.
-    """
-    def __init__(self, name: str, description: str) -> None:
-        """Initialize a Task object.
-
-        Args:
-            name (str): The name of the task.
-            description (str): The description of the task.
-        """
-        self.name = name
-        self.description = description
-
-    def execute(self) -> None:
-        """Execute the task.
-
-        Returns:
-            None
-        """
-        print(f"Executing task: {self.name}")
-
-    def get_status(self) -> str:
-        """Get the status of the task.
-
-        Returns:
-            str: The status of the task.
-        """
-        return "Completed"
-
-def task1() -> None:
-    """A function representing a task.
+def test_task1() -> None:
+    """Test task1 function.
 
     Returns:
         None
     """
-    print("Task 1 executed")
+    task1()
+    assert True
 
-def task2(name: str, description: str) -> None:
-    """A function representing a task.
+def test_task2() -> None:
+    """Test task2 function.
 
-    Args:
-        name (str): The name of the task.
-        description (str): The description of the task.
     Returns:
         None
     """
-    print(f"Task {name} executed: {description}")
+    task2("Task 2", "This is task 2")
+    assert True
+
+def test_task_class() -> None:
+    """Test Task class.
+
+    Returns:
+        None
+    """
+    task = Task("Task 3", "This is task 3")
+    task.execute()
+    assert task.get_status() == "Completed"
