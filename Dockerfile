@@ -21,8 +21,8 @@ RUN pip install --no-cache-dir \
     langchain-core==1.4.8 \
     langchain-text-splitters==1.1.2 \
     python-docx==1.1.2 \
-    pytest==8.3.4
-
+    pytest==8.3.4 \
+    langchain-google-genai==2.0.7
 COPY . .
 
 RUN mkdir -p data faiss_index
