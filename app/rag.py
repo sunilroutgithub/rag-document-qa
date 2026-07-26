@@ -16,7 +16,7 @@ def get_embeddings():
 def get_llm(provider: str = "groq"):
     if provider == "gemini":
         return ChatGoogleGenerativeAI(
-            model="gemini-1.5-flash",
+            model="gemini-2.0-flash",
             google_api_key=os.getenv("GEMINI_API_KEY"),
             temperature=0.3
         )
