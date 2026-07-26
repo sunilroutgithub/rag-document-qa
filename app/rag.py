@@ -1,5 +1,6 @@
 from langchain_groq import ChatGroq
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_cohere import ChatCohere
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import FakeEmbeddings
 from langchain_core.prompts import PromptTemplate
@@ -18,6 +19,12 @@ def get_llm(provider: str = "groq"):
         return ChatGoogleGenerativeAI(
             model="gemini-2.0-flash",
             google_api_key=os.getenv("GEMINI_API_KEY"),
+            temperature=0.3
+        )
+    if provider == "cohere":
+        return ChatCohere(
+            model="command-r",
+            cohere_api_key=os.getenv("COHERE_API_KEY"),
             temperature=0.3
         )
     return ChatGroq(
