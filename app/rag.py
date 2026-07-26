@@ -23,7 +23,7 @@ def get_llm(provider: str = "groq"):
         )
     if provider == "cohere":
         return ChatCohere(
-            model="command-r",
+            model="command-r-08-2024",
             cohere_api_key=os.getenv("COHERE_API_KEY"),
             temperature=0.3
         )
