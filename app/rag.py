@@ -1,4 +1,5 @@
 from langchain_groq import ChatGroq
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import FakeEmbeddings
 from langchain_core.prompts import PromptTemplate
@@ -12,7 +13,19 @@ load_dotenv()
 def get_embeddings():
     return FakeEmbeddings(size=384)
 
-def get_llm():
+# def get_llm():
+#     return ChatGroq(
+#         model="llama-3.1-8b-instant",
+#         api_key=os.getenv("GROQ_API_KEY"),
+#         temperature=0.3
+#     )
+    def get_llm(provider: str = "groq"):
+    if provider == "gemini":
+        return ChatGoogleGenerativeAI(
+            model="gemini-1.5-flash",
+            google_api_key=os.getenv("GEMINI_API_KEY"),
+            temperature=0.3
+        )
     return ChatGroq(
         model="llama-3.1-8b-instant",
         api_key=os.getenv("GROQ_API_KEY"),
@@ -30,8 +43,11 @@ def load_vector_store_for_rag(save_path: str = "faiss_index"):
         allow_dangerous_deserialization=True
     )
 
-def answer_question(question: str, vector_store: FAISS):
-    llm = get_llm()
+
+# def answer_question(question: str, vector_store: FAISS):
+def answer_question(question: str, vector_store: FAISS, provider: str = "groq"):
+    # llm = get_llm()
+    llm = get_llm(provider)
     retriever = vector_store.as_retriever(search_kwargs={"k": 4})
 
     prompt = PromptTemplate.from_template("""
